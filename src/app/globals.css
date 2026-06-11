@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit), var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #030712;
+  --foreground: #f3f4f6;
+  --nebula-teal: #00f2fe;
+  --nebula-purple: #7928ca;
+  --nebula-blue: #4facfe;
+}
+
+.dark {
+  --background: #030712;
+  --foreground: #f3f4f6;
+}
+
+/* For light mode (toggled via .light class on html/body if desired) */
+.light {
+  --background: #fafafa;
+  --foreground: #171717;
+  --nebula-teal: #00b4d8;
+  --nebula-purple: #9b5de5;
+  --nebula-blue: #0077b6;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.4);
+}
+
+/* Space Dust & Nebula Animation */
+.space-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.nebula-glow-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  animation: float-slow 25s infinite alternate ease-in-out;
+}
+
+.nebula-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(121, 40, 202, 0.06) 0%, transparent 75%);
+  filter: blur(120px);
+  pointer-events: none;
+  animation: float-slow 35s infinite alternate-reverse ease-in-out;
+}
+
+.nebula-glow-3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.04) 0%, transparent 60%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(0.9);
+  }
+}
+
+/* Star Dust Effect */
+.star-field {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.2), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 120px 240px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 200px 80px, rgba(255, 255, 255, 0.1), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 280px 120px, rgba(255, 255, 255, 0.25), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 350px 350px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 550px 550px;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* Custom Interactive Cursor */
+.custom-cursor {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid rgba(0, 242, 254, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  mix-blend-mode: screen;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00f2fe;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: screen;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(10, 18, 40, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 242, 254, 0.25);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.05);
+}
+
+/* Glow Borders for inputs/active elements */
+.glow-input:focus {
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+}
+
+/* Hide cursor on touchscreen devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor, .custom-cursor-dot {
+    display: none;
+  }
 }
