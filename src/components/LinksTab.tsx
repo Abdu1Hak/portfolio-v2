@@ -76,28 +76,28 @@ export default function LinksTab({ socials }: LinksTabProps) {
       name: "GitHub",
       url: socials.github,
       description: "Explore my open-source repositories, developer tools, and projects.",
-      icon: <GithubIcon className="w-6 h-6 text-[#00f2fe]" />,
+      icon: <GithubIcon className="w-6 h-6 text-white" />,
       actionLabel: "github.com/abdulfarooqi",
     },
     {
       name: "LinkedIn",
       url: socials.linkedin,
       description: "Connect with me for professional updates, collaborations, and career opportunities.",
-      icon: <LinkedinIcon className="w-6 h-6 text-[#00f2fe]" />,
+      icon: <LinkedinIcon className="w-6 h-6 text-white" />,
       actionLabel: "linkedin.com/in/abdulfarooqi",
     },
     {
       name: "Twitter / X",
       url: socials.twitter,
       description: "Read my thoughts on technology developments, engineering systems, and ML research.",
-      icon: <TwitterIcon className="w-6 h-6 text-[#00f2fe]" />,
+      icon: <TwitterIcon className="w-6 h-6 text-white" />,
       actionLabel: "@abdulfarooqi",
     },
     {
       name: "Curriculum Vitae",
       url: "/resume.pdf",
       description: "Download my professional resume detailing my technical achievements and experience.",
-      icon: <FileText className="w-6 h-6 text-[#00f2fe]" />,
+      icon: <FileText className="w-6 h-6 text-white" />,
       actionLabel: "Download PDF",
       download: true,
     },
@@ -108,28 +108,28 @@ export default function LinksTab({ socials }: LinksTabProps) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="w-full max-w-7xl mx-auto px-6 md:px-8 text-left space-y-8"
+      className="w-full max-w-5xl mx-auto px-6 md:px-8 text-left space-y-8"
     >
       <div className="flex items-center gap-1.5 mb-2">
         <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground font-sans">
           Social Links
         </h2>
-        <span className="w-3.5 h-6 bg-[#00f2fe] inline-block animate-pulse shrink-0 self-end mb-1" />
+        <span className="w-3.5 h-6 bg-white inline-block animate-pulse shrink-0 self-end mb-1" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Interactive copy email card */}
         <div 
           onClick={copyEmail}
-          className="rounded-2xl glass-card border border-white/5 p-6 hover:border-[#00f2fe]/20 hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between cursor-pointer group relative"
+          className="rounded-2xl glass-card border border-white/5 p-6 hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between cursor-pointer group relative"
         >
           <div>
             <div className="flex justify-between items-start mb-6">
-              <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-[#00f2fe] group-hover:scale-105 transition-transform">
+              <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                 <Mail className="w-6 h-6" />
               </div>
               <button 
-                className="p-2 rounded-lg bg-white/5 border border-white/5 text-foreground/70 hover:text-foreground group-hover:bg-[#00f2fe]/10 transition-colors"
+                className="p-2 rounded-lg bg-white/5 border border-white/5 text-foreground/70 hover:text-foreground group-hover:bg-white/10 transition-colors"
                 title="Copy email to clipboard"
               >
                 {copied ? <Check className="w-4.5 h-4.5 text-emerald-400" /> : <Copy className="w-4.5 h-4.5" />}
@@ -142,7 +142,7 @@ export default function LinksTab({ socials }: LinksTabProps) {
               Reach out directly for research positions, contract work, or embedded systems collaboration.
             </p>
           </div>
-          <div className="font-mono text-xs text-[#00f2fe] tracking-wide flex items-center gap-1.5 justify-end">
+          <div className="font-mono text-xs text-white tracking-wide flex items-center gap-1.5 justify-end">
             <span className="truncate">{socials.email}</span>
             <span className="text-foreground/30 font-sans text-[10px] uppercase">
               {copied ? "(Copied)" : "(Copy)"}
@@ -158,14 +158,14 @@ export default function LinksTab({ socials }: LinksTabProps) {
             target="_blank"
             rel="noopener noreferrer"
             download={item.download}
-            className="rounded-2xl glass-card border border-white/5 p-6 hover:border-[#00f2fe]/20 hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+            className="rounded-2xl glass-card border border-white/5 p-6 hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
           >
             <div>
               <div className="flex justify-between items-start mb-6">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-[#00f2fe] group-hover:scale-105 transition-transform">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                   {item.icon}
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-foreground/30 group-hover:text-[#00f2fe] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ArrowUpRight className="w-5 h-5 text-foreground/30 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </div>
               <h3 className="text-lg font-bold tracking-tight text-foreground font-sans mb-2">
                 {item.name}
@@ -174,7 +174,7 @@ export default function LinksTab({ socials }: LinksTabProps) {
                 {item.description}
               </p>
             </div>
-            <div className="font-mono text-xs text-[#00f2fe] tracking-wide text-right truncate">
+            <div className="font-mono text-xs text-white tracking-wide text-right truncate">
               {item.actionLabel}
             </div>
           </a>

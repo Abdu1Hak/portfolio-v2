@@ -13,6 +13,12 @@ export interface Goal {
   icon: string;
 }
 
+export interface Activity {
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
 export interface Award {
   title: string;
   subtitle: string;
@@ -27,6 +33,7 @@ export interface Project {
     code?: string;
     demo?: string;
     share?: string;
+    external?: string;
   };
   wide?: boolean;
   imageZoom?: number;
@@ -54,6 +61,7 @@ export interface PortfolioData {
     version: string;
   };
   interests: Interest[];
+  activities: Activity[];
   goals: Goal[];
   awards: Award[];
   projects: Project[];
@@ -69,7 +77,7 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Abdul Farooqi",
-    bio: "Interested in building impactful Software, and exploring research in AI/ML and Robotics.",
+    bio: "Focused on AI/ML, robotics software, and building reliable, impactful systems.",
     subBio: "",
     badgeText: "Incoming Mathematics @ University of Waterloo", 
     version: "v2.0.0-stable",
@@ -78,38 +86,49 @@ export const portfolioData: PortfolioData = {
     {
       title: "AI & ML",
       subtitle: "AI & ML",
-      description: "Interested in training and adapting AI models to learn, reason and interact with the world.",
+      description: "AI & ML: Interested in training and adapting AI models to learn, reason and interact with the world.",
       icon: "brain",
       color: "text-amber-500 bg-amber-500/10 border-amber-500/20",
     },
     {
       title: "Software Development",
       subtitle: "Software Development",
-      description: "Building projects and tools that solve problems and make impact with emerging technologies",
+      description: "Software: Building projects and tools that solve problems and make impact with emerging technologies",
       icon: "banknote",
       color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
     },
     {
       title: "Robotics",
       subtitle: "Robotics",
-      description: "Exploring embedded robotics software through autonomous navigation and computer vision projects",
+      description: "Robotics: Exploring embedded robotics software through autonomous navigation and computer vision projects",
       icon: "cpu",
       color: "text-purple-500 bg-purple-500/10 border-purple-500/20",
     },
   ],
+  activities: [
+    {
+      title: "Design Team",
+      subtitle: "Team Lead",
+      description: "Youngest member of Electrium Mobility 2025, where I desinged firmware for a remote control of an electric skateboard.",
+    },
+    {
+      title: "Hackathons",
+      subtitle: "Participant",
+      description: "Participated at SpurHacks 2025 and built Numena, an all-in-one AI tutor for any math concepts",
+    },
+    {
+      title: "Hackathon",
+      subtitle: "Participant",
+      description: "Participated at FormulaNull Hackathon 2025, building remote control cars from e-waste.",
+    },
+    {
+      title: "Robots",
+      subtitle: "Participant",
+      description: "Competed at the National Stage at WRO Future Engineers 2025, where my team and I build an autonmous car from scratch.",
+    },
+  ],
   goals: [
-    {
-      title: "Building My Toolkit",
-      subtitle: "Scaling Systems",
-      description: "Aiming to develop a strong foundation of skills in software development, AI/ML and robotics.",
-      icon: "database",
-    },
-    {
-      title: "Social Good",
-      subtitle: "Social Good",
-      description: "Leveraging tech to solve accessibility and education inequities.",
-      icon: "heart",
-    },
+    
   ],
   awards: [
     {
@@ -119,12 +138,12 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "President's Scholarship of Distinction",
-      subtitle: "Awarded $2,000 by the University of Waterloo for academic excellence.",
+      subtitle: "Awarded $5,000 by the University of Waterloo for academic excellence.",
       icon: "graduation-cap",
     },
     {
-      title: "National Robotics Competitior",
-      subtitle: "Competed at the World Robot Olympiad Future Engineers Autonomous Car Competition.",
+      title: "WRO National Future Engineer",
+      subtitle: "Competed at the World Robot Olympiad self-driving car challenge at the National stage.",
       icon: "code-2",
     },
   ],

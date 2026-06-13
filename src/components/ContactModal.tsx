@@ -92,22 +92,22 @@ export default function ContactModal({ isOpen, onClose, email, github, linkedin 
 
         <div className="space-y-4 text-left">
           {/* Email row with Copy option */}
-          <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-[#00f2fe]/20 transition-all group">
+          <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-all group">
             <div className="flex items-center gap-3 overflow-hidden">
-              <Mail className="w-5 h-5 text-[#00f2fe] shrink-0" />
+              <Mail className="w-5 h-5 text-white shrink-0" />
               <span className="text-sm font-mono text-foreground/90 truncate select-all">
                 {email}
               </span>
             </div>
             <button
               onClick={copyToClipboard}
-              className="p-2 rounded-lg bg-white/5 text-foreground/70 hover:text-foreground hover:bg-[#00f2fe]/10 transition-all shrink-0 ml-2"
+              className="p-2 rounded-lg bg-white/5 text-foreground/70 hover:text-foreground hover:bg-white/10 transition-all shrink-0 ml-2"
               title="Copy to clipboard"
             >
               {copied ? (
-                <Check className="w-4 h-4 text-emerald-400" />
+                <Check className="w-4.5 h-4.5 text-emerald-400" />
               ) : (
-                <Copy className="w-4 h-4" />
+                <Copy className="w-4.5 h-4.5" />
               )}
             </button>
           </div>
@@ -117,12 +117,12 @@ export default function ContactModal({ isOpen, onClose, email, github, linkedin 
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-[#00f2fe]/20 hover:bg-[#00f2fe]/5 transition-all text-foreground/90 hover:text-foreground group"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all text-foreground/90 hover:text-foreground group"
           >
-            <GithubIcon className="w-5 h-5 text-[#00f2fe] group-hover:scale-110 transition-transform" />
+            <GithubIcon className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
             <div className="flex justify-between items-center w-full">
               <span className="text-sm font-medium">Github</span>
-              <span className="text-xs font-mono text-foreground/40 group-hover:text-[#00f2fe]/60 transition-colors">
+              <span className="text-xs font-mono text-foreground/40 group-hover:text-white/60 transition-colors">
                 (Click Here)
               </span>
             </div>
@@ -133,12 +133,12 @@ export default function ContactModal({ isOpen, onClose, email, github, linkedin 
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-[#00f2fe]/20 hover:bg-[#00f2fe]/5 transition-all text-foreground/90 hover:text-foreground group"
+            className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all text-foreground/90 hover:text-foreground group"
           >
-            <LinkedinIcon className="w-5 h-5 text-[#00f2fe] group-hover:scale-110 transition-transform" />
+            <LinkedinIcon className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
             <div className="flex justify-between items-center w-full">
               <span className="text-sm font-medium">LinkedIn</span>
-              <span className="text-xs font-mono text-foreground/40 group-hover:text-[#00f2fe]/60 transition-colors">
+              <span className="text-xs font-mono text-foreground/40 group-hover:text-white/60 transition-colors">
                 (Click Here)
               </span>
             </div>

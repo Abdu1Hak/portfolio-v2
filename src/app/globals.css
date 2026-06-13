@@ -7,6 +7,7 @@
   --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), monospace;
 }
 
+
 :root {
   --background: #030712;
   --foreground: #f3f4f6;
@@ -40,13 +41,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgba(3, 7, 18, 0.5);
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 242, 254, 0.2);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 242, 254, 0.4);
 }
@@ -103,9 +107,11 @@ body {
   0% {
     transform: translate(0, 0) scale(1);
   }
+
   50% {
     transform: translate(5%, 10%) scale(1.1);
   }
+
   100% {
     transform: translate(-5%, -5%) scale(0.9);
   }
@@ -115,13 +121,13 @@ body {
 .star-field {
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.2), rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 120px 240px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 200px 80px, rgba(255, 255, 255, 0.1), rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 280px 120px, rgba(255, 255, 255, 0.25), rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 350px 350px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0));
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 120px 240px, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 200px 80px, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 280px 120px, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 350px 350px, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0));
   background-repeat: repeat;
   background-size: 550px 550px;
   opacity: 0.75;
@@ -157,10 +163,11 @@ body {
 /* Glassmorphism Cards */
 .glass-card {
   background: rgba(10, 18, 40, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .light .glass-card {
@@ -169,6 +176,28 @@ body {
 }
 
 .glass-card:hover {
+  border-color: rgba(0, 242, 254, 0.22);
+  box-shadow: 0 18px 40px rgba(0, 242, 254, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Stronger timeline left border helper for Work History */
+.timeline-strong {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Project-specific glass (restore previous lighter project card look) */
+.project-glass {
+  background: rgba(10, 18, 40, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-glass:hover {
   border-color: rgba(0, 242, 254, 0.25);
   box-shadow: 0 0 25px rgba(0, 242, 254, 0.05);
 }
@@ -181,7 +210,9 @@ body {
 
 /* Hide cursor on touchscreen devices */
 @media (hover: none) and (pointer: coarse) {
-  .custom-cursor, .custom-cursor-dot {
+
+  .custom-cursor,
+  .custom-cursor-dot {
     display: none;
   }
 }

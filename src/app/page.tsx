@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HomeTab from "@/components/HomeTab";
+import SummaryTab from "@/components/HomeTab";
 import ProjectsTab from "@/components/ProjectsTab";
 import ExperienceTab from "@/components/ExperienceTab";
 import ContactModal from "@/components/ContactModal";
@@ -13,25 +13,37 @@ import CustomCursor from "@/components/CustomCursor";
 import { portfolioData } from "@/data/portfolio";
 
 export default function Page() {
-  const [activeTab, setActiveTab] = useState<string>("Home");
+  const [activeTab, setActiveTab] = useState<string>("Summary");
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
 
-  const tabs = ["Home", "Projects", "Experience"];
+  const tabs = ["Summary", "Projects", "Experience"];
 
   // Open modal handler
   const openContact = () => setIsContactOpen(true);
   // Close modal handler
   const closeContact = () => setIsContactOpen(false);
 
+
+
+
   return (
-    <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-[#00f2fe]/20 selection:text-[#00f2fe]">
+    <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-white/20 selection:text-white">
       {/* Immersive Space Cosmic Background */}
-      <div className="space-bg">
-        <div className="nebula-glow-1" />
-        <div className="nebula-glow-2" />
-        <div className="nebula-glow-3" />
-        <div className="star-field" />
-      </div>
+  
+      {/* Dark White Dotted Grid Background */}
+      <div
+        className="fixed inset-0"
+        style={{
+          zIndex: -10,
+          background: "#000000",
+          backgroundImage: `
+            radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px)
+          `,
+          backgroundSize: "30px 30px",
+          backgroundPosition: "0 0",
+        }}
+      />
+      {/* Your Content/Components */}
 
       {/* Immersive Follow Cursor */}
       <CustomCursor />
@@ -43,7 +55,6 @@ export default function Page() {
         {/* Hero Header */}
         <Header
           name={portfolioData.profile.name}
-          bio={portfolioData.profile.bio}
           badgeText={portfolioData.profile.badgeText}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
@@ -60,10 +71,10 @@ export default function Page() {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              {activeTab === "Home" && (
-                <HomeTab
+              {activeTab === "Summary" && (
+                <SummaryTab
                   interests={portfolioData.interests}
-                  goals={portfolioData.goals}
+                  activities={portfolioData.activities}
                   awards={portfolioData.awards}
                 />
               )}
@@ -89,7 +100,6 @@ export default function Page() {
         github={portfolioData.socials.github}
         linkedin={portfolioData.socials.linkedin}
         twitter={portfolioData.socials.twitter}
-        version={portfolioData.profile.version}
         onEmailClick={openContact}
       />
 

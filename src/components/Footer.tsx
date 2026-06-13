@@ -7,7 +7,6 @@ interface FooterProps {
   github: string;
   linkedin: string;
   twitter: string;
-  version: string;
   onEmailClick: () => void;
 }
 
@@ -56,84 +55,59 @@ const TwitterIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-export default function Footer({ email, github, linkedin, twitter, version, onEmailClick }: FooterProps) {
+export default function Footer({ email, github, linkedin, twitter, onEmailClick }: FooterProps) {
   return (
-    <footer className="w-full max-w-7xl mx-auto px-6 md:px-8 pt-20 pb-12 mt-20 border-t border-white/5 text-left">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
-        {/* Left column pitching text */}
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold font-sans tracking-tight text-foreground mb-3 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2fe] to-[#4facfe]">
-              Let's Connect!
-            </span>
-          </h2>
-          <p className="text-xs md:text-sm text-foreground/70 leading-relaxed max-w-sm">
-            Open to collaborating on robotics, research, and high-performance computing.
-          </p>
-        </div>
+    <footer className="w-full max-w-5xl mx-auto px-6 md:px-8 py-8 mt-10 border-t border-white/5 text-center">
+      <div className="flex flex-wrap justify-center gap-3">
+        {/* Email card trigger */}
+        <button
+          onClick={onEmailClick}
+          className="flex items-center gap-2 px-4 py-3 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md text-sm transition-all hover:border-white/20"
+        >
+          <Mail className="w-4 h-4 text-white shrink-0" />
+          <span className="font-mono font-medium text-foreground/80">
+            Email
+          </span>
+        </button>
 
-        {/* Right column: 4 social links grid */}
-        <div className="grid grid-cols-2 gap-3.5">
-          {/* Email card trigger */}
-          <button
-            onClick={onEmailClick}
-            className="flex items-center gap-3 p-4 rounded-xl glass-card border border-white/5 hover:border-[#00f2fe]/25 hover:bg-white/[0.03] transition-all text-left group cursor-pointer"
-          >
-            <Mail className="w-4 h-4 text-[#00f2fe] shrink-0" />
-            <span className="text-xs font-mono font-medium text-foreground/80 group-hover:text-foreground">
-              Email
-            </span>
-          </button>
+        {/* LinkedIn card */}
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-3 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md text-sm transition-all hover:border-white/20"
+        >
+          <LinkedinIcon className="w-4 h-4 text-white shrink-0" />
+          <span className="font-mono font-medium text-foreground/80">
+            LinkedIn
+          </span>
+        </a>
 
-          {/* LinkedIn card */}
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl glass-card border border-white/5 hover:border-[#00f2fe]/25 hover:bg-white/[0.03] transition-all text-left group cursor-pointer"
-          >
-            <LinkedinIcon className="w-4 h-4 text-[#00f2fe] shrink-0" />
-            <span className="text-xs font-mono font-medium text-foreground/80 group-hover:text-foreground">
-              LinkedIn
-            </span>
-          </a>
+        {/* GitHub card */}
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-3 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md text-sm transition-all hover:border-white/20"
+        >
+          <GithubIcon className="w-4 h-4 text-white shrink-0" />
+          <span className="font-mono font-medium text-foreground/80">
+            GitHub
+          </span>
+        </a>
 
-          {/* GitHub card */}
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl glass-card border border-white/5 hover:border-[#00f2fe]/25 hover:bg-white/[0.03] transition-all text-left group cursor-pointer"
-          >
-            <GithubIcon className="w-4 h-4 text-[#00f2fe] shrink-0" />
-            <span className="text-xs font-mono font-medium text-foreground/80 group-hover:text-foreground">
-              GitHub
-            </span>
-          </a>
-
-          {/* Twitter card */}
-          <a
-            href={twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl glass-card border border-white/5 hover:border-[#00f2fe]/25 hover:bg-white/[0.03] transition-all text-left group cursor-pointer"
-          >
-            <TwitterIcon className="w-4 h-4 text-[#00f2fe] shrink-0" />
-            <span className="text-xs font-mono font-medium text-foreground/80 group-hover:text-foreground">
-              Twitter
-            </span>
-          </a>
-        </div>
-      </div>
-
-      {/* Footer bottom metadata */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5 font-mono text-[10px] md:text-xs text-foreground/30">
-        <div>
-          © {new Date().getFullYear()} Abdul Farooqi • Built with Precision & Code
-        </div>
-        <div className="text-[#00f2fe] font-semibold">
-          {version}
-        </div>
+        {/* Twitter card */}
+        <a
+          href={twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-3 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md text-sm transition-all hover:border-white/20"
+        >
+          <TwitterIcon className="w-4 h-4 text-white shrink-0" />
+          <span className="font-mono font-medium text-foreground/80">
+            Twitter
+          </span>
+        </a>
       </div>
     </footer>
   );

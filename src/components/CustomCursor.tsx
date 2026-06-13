@@ -77,8 +77,8 @@ export default function CustomCursor() {
           top: `${trail.y}px`,
           width: isHovered ? "46px" : "28px",
           height: isHovered ? "46px" : "28px",
-          backgroundColor: isHovered ? "rgba(0, 242, 254, 0.08)" : "transparent",
-          borderColor: isHovered ? "rgba(0, 242, 254, 0.8)" : "rgba(0, 242, 254, 0.4)",
+          backgroundColor: isHovered ? "rgba(255, 255, 255, 0.08)" : "transparent",
+          borderColor: isHovered ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.4)",
         }}
       />
       {/* Inner precise dot */}
