@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { motion } from "framer-motion";
 import { Code2, Play, ExternalLink, Share2 } from "lucide-react";
 import { Project, Metric } from "@/data/portfolio";
